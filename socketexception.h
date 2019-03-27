@@ -10,7 +10,7 @@ public:
     SocketException(std::string description)
     :m_description(description)
     {}
-    ~SocktException(){}
+    //~SocktException(){};
 
     std::string Description() const
     {
