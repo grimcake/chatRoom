@@ -1,6 +1,7 @@
 #include "socket.h"
 #include <iostream>
 #include <string.h>
+#include <fcntl.h>
 
 Socket::Socket()
 :m_sockfd(-1)
@@ -98,10 +99,30 @@ int Socket::Receive(Socket& socket, std::string& message) const
 
 void Socket::SetNonBlocking(const bool flag)
 {
+    if(IsValid())
+    {
+        int opts;
+        opts = fcntl(m_sockfd, F_GETFL);
+        if(opts<0) return;
 
+        if(flag)
+        {
+            opts = (opts | O_NONBLOCK);
+        }
+        else
+        {
+            opts = (opts & ~O_NONBLOCK);
+        }
+        fcntl(m_sockfd, F_SETFL, opts);
+    }
 }
 
 bool Socket::IsValid() const
 {
     return m_sockfd != -1;
+}
+
+int Socket::GetSocketfd()
+{
+    return m_sockfd;
 }

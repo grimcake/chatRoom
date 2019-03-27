@@ -34,6 +34,8 @@ public:
     void SetNonBlocking(const bool flag);
     bool IsValid() const;
 
+    int GetSocketfd();
+
 private:
     int m_sockfd;
     struct sockaddr_in m_address;

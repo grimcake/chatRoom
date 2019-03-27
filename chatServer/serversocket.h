@@ -1,7 +1,7 @@
 #ifndef SERVERSOCKET_H
 #define SERVERSOCKET_H
 
-#include "socket.h"
+#include "../socket.h"
 
 class ServerSocket:public Socket
 {

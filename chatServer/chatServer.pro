@@ -12,11 +12,15 @@ TEMPLATE = app
 SOURCES += \
     serversocket.cpp \
     chatserver.cpp \
-    ../socket.cpp
+    ../socket.cpp \
+    epoll.cpp \
+    epollserversocket.cpp
 
 HEADERS += \
     serversocket.h \
     ../socketexception.h \
-    ../socket.h
+    ../socket.h \
+    epoll.h \
+    epollserversocket.h
 
 

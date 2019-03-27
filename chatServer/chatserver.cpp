@@ -1,7 +1,8 @@
 #include <iostream>
 #include <string>
 #include "serversocket.h"
-#include "socketexception.h"
+#include "../socketexception.h"
+#include "epollserversocket.h"
 
 using namespace std;
 
@@ -10,7 +11,8 @@ int main()
     cout<<"running server..."<<endl;
     try
     {
-        ServerSocket server(8080);
+        EpollServerSocket server(8080);
+        server.Run();
         while(true)
         {
             Socket newSocket;
