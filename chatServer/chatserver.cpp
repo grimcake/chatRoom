@@ -13,7 +13,7 @@ int main()
     {
         EpollServerSocket server(8080);
         server.Run();
-        while(true)
+        /*while(true)
         {
             Socket newSocket;
             server.Accept(newSocket);
@@ -23,7 +23,7 @@ int main()
             cout<<"Receive message: "<<message<<endl;
             message = "here is server";
             server.Send(newSocket, message);
-        }
+        }*/
     }
     catch(SocketException& ex)
     {
